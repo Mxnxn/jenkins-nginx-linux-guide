@@ -1,7 +1,7 @@
 # Jenkins Guide for pre-existing react projects
 I've faced alot of errors and utilized a significant amount of time to deploy successfully.
 
-~[jenkins](/logos/jenkins.png) ~[react](/logos/reactjs.png)
+![jenkins](https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/logos/jenkins.png =250px) ![react](https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/logos/reactjs.png =250px)
 
 ## Techs
 1. Nodejs/NVM/npm
