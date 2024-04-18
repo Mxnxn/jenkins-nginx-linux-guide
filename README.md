@@ -29,7 +29,7 @@ if you get error while starting you may check for java and jvm
 ```
 sudo update-alternatives --config java
 ```
-you'll see output like this
+you'll see output like this \
 <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/Termius_4SyzqUzGWf.png" alt="drawing" width="600"/>
 
 ## Nodejs and Npm
