@@ -31,8 +31,18 @@ sudo update-alternatives --config java
 ```
 you'll see output like this \
 \
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/Termius_4SyzqUzGWf.png" alt="drawing" width="600"/>
-
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/Termius_4SyzqUzGWf.png" alt="drawing" width="600"/> \
+If you have something like this then 
+```
+sudo apt-get install default-jre
+sudo apt-get install java-1.8.0 -y
+```
+We need to change the domain and prefix in JENKINS_ARG
+```
+sudo nano /etc/init.d/Jenkins
+```
+add this at the end 
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_args.png" alt="drawing" width="900"/> \
 ## Nodejs and Npm
 ```
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
