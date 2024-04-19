@@ -3,6 +3,8 @@ I've faced a lot of errors and utilized a significant amount of time to build an
 
 <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/logos/jenkins.png" alt="drawing" width="300"/> <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/logos/reactjs.png" alt="drawing" width="200"/>
 
+> Dont Forget to drop star if you run this guide successfull :) and you can [download](https://github.com/Mxnxn/jenkins-reactjs-guide/demos) the demo files.
+
 # Prequisites
 1. Nginx installation
 2. Java jre/jdk installation
