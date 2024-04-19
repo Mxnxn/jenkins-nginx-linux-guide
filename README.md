@@ -1,4 +1,4 @@
-# Jenkins Guide for pre-existing react projects
+# Jenkins Guide using Reactjs Project 
 I've faced a lot of errors and utilized a significant amount of time to build and deploy my portfolio website manually. Though of learning Jenkins for DevOps learning purposes. I've created a guide but need hands-on experience a bit for understand small details. I just need to push an update, my project will automatically deploy. Thanks to CI/CD and GithubActions.
 
 <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/logos/jenkins.png" alt="drawing" width="300"/> <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/logos/reactjs.png" alt="drawing" width="200"/>
