@@ -202,7 +202,9 @@ One can save, and apply after this. Therefore, a job has been successfully creat
    sudo chown -R jenkins:jenkins <directory>
    ```
    this will eliminate permission errors. As installation has created a Jenkins user.
-   > Note: DEMOs are [Here](https://github.com/Mxnxn/jenkins-reactjs-guide/demos)
+
+## to download DEMO of Deploy.yml and Jenkinsfile
+[Download](https://github.com/Mxnxn/jenkins-reactjs-guide/demos)
 
 ## If you like this guide hit star, Please.
 
