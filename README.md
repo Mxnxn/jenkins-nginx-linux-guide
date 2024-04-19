@@ -64,7 +64,7 @@ Now, add a default copy from `/etc/nginx/sites-available` to `/etc/nginx/sites-e
 sudo nano default_copy # or whatever you named it
 ```
 it's `server { } ` should look like this
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/nginx_jenkins.png" alt="drawing" width="800"/> \
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/nginx_jenkins_2.png" alt="drawing" width="800"/> \
 Now, run this to rename
 ```sudo mv default_copy jenkins.example.com # change your domain name instead example.com```
 for checking syntax run
