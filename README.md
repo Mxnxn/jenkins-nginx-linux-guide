@@ -1,17 +1,17 @@
-# Jenkins Guide for pre-existing react projects
-I've faced a lot of errors and utilized a significant amount of time to deploy successfully.
+in# Jenkins Guide for pre-existing react projects
+I've faced a lot of errors and utilized a significant amount of time to build and deploy my portfolio website manually. Though of learning Jenkins for DevOps learning purposes. I've created a guide but need hands-on experience a bit for understand small details. I just need to push an update, my project will automatically deploy. Thanks to CI/CD and GithubActions.
 
 <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/logos/jenkins.png" alt="drawing" width="300"/> <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/logos/reactjs.png" alt="drawing" width="200"/>
 
 # Prequisites
 1. Nginx installation
 2. Java jre/jdk installation
-3. reactjs repository (which is perfectly builds on server)
+3. Reactjs/Nodejs repository (which is perfectly built on the server)
 4. setup SSH through username and password
 5. Certbot
-6. Already added A entry on if you are going to run jenkins on subdomain.
+6. Already added An entry on whether you are going to run Jenkins on a subdomain.
 
-## Techs
+## Techs I've used
 1. Nodejs/NVM/npm
 2. Reactjs
 3. bun package manager (faster than node/yarn)
@@ -33,22 +33,22 @@ to run
 ```
 sudo systemctl start jenkins
 ```
-if you get an error while starting you may check for Java and jvm
+if you get an error while starting you may check for Java and JVM
 ```
 sudo update-alternatives --config java
 ```
 you'll see output like this \
 \
 <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/Termius_4SyzqUzGWf.png" alt="drawing" width="600"/> \
-If you do not see something like this then you may require the jre, jdk as mentioned in the prerequisites
+If you do not see something like this then you may require the JRE, jdk as mentioned in the prerequisites
 ```
 sudo apt-get install default-jre
 sudo apt-get install java-1.8.0 -y
 ```
 
 # SSL for Jenkins.
-A subdomain entry at host website is required. A entry be like -> A www.jenkins.example.com 3600  
-> Note: I've setup Jenkins on the subdomain of my website but you can do by adding a prefix and path like `example.com/jenkins`
+A subdomain entry at the host website (Digital Ocean Dashboard) is required. An entry be like -> A www.jenkins.example.com 3600  
+> Note: I've set Jenkins on the subdomain of my website but you can do it by adding a prefix and path like `example.com/jenkins`
 ## Setup for Jenkins for SSL
 We need to change the domain and prefix in JENKINS_ARG
 ```
@@ -79,11 +79,11 @@ A simple command, before this you need to install certbot if one has not
 ```
 sudo certbot --nginx -d jenkins.example.com -d www.jenkins.example.com
 ```
-Choose 1 to redirect once it prompt.
+Choose 1 to redirect once it prompts.
 SSL and setup of Jenkins are completed here.
 
 ## Nodejs and Npm
-This snippet will help you to install nodejs nvm npm completely in case you are getting error
+This snippet will help you to install nodejs nvm npm completely in case you are getting an error
 ```
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 source ~/.bashrc # your bash/shell
@@ -163,6 +163,51 @@ It will ask for the URL, put `https://jenkins.example.com/`, and Successfully, i
 <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_final.png" alt="drawing" width="900"/>
 
 One can save, and apply after this. Therefore, a job has been successfully created with this. It will look like this
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/img (8).png" alt="drawing" width="900"/>
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_jobcreated.png" alt="drawing" width="900"/>
 
- 
+# Make it run using GithubAction
+
+## First we need to create a user token.
+1. Go to `Dashboard > People > <your user> > Configure > Add Token`
+2. Enter anything like a key, pass, or username, and save the **token**.
+
+## Go to Github Repository Settings
+1. Click repository and go to `Secrets and Variables > Actions > Repository secrets`
+2. Enter all of these
+   <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/github_secrets.png" alt="drawing" width="700"/>
+3. Now go to ` Repository > Actions (4th Tab) > New Workflow > Set up your own` it will lead to **Deploy.yml**
+   ```
+   name: Build & Deploy
+   on:
+     push:
+       branches: [master]
+      
+   jobs:
+     deploy:
+       runs-on: ubuntu-latest # <OS CAN BE DIFFERENT> if you using ubuntu then its fine
+       steps:
+       - name: Trigger Jenkins job
+         uses: appleboy/jenkins-action@master
+         with:
+           url: ${{ secrets.JENKINS_URL }}
+           job: "<The pipeline name you entered>"
+           user: ${{ secrets.JENKINS_USERNAME }}
+           token: ${{ secrets.JENKINS_TOKEN }}
+    ```
+   > Note: Copy and paste if you have Ubuntu and don't forget to check indentation.
+4. Change the commit and This commit will reach Jenkins directly.
+5. Create a file named `Jenkinsfile` in your local repository.
+6. `Jenkinsfile` will execute the shell. If you want to make changes and deploy your build somewhere else you need to give permission for that directory
+   ```
+   sudo chown -R jenkins:jenkins <directory>
+   ```
+   this will eliminate permission errors. As installation has created a Jenkins user.
+   > Note: DEMOs are [Here](https://github.com/Mxnxn/jenkins-reactjs-guide/demos)
+
+## If you like this guide hit star, Please.
+
+# References for this guide
+1. https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-18-04
+2. https://bun.sh/docs/installation
+3. https://medium.com/@pavan.thirumalagiri68/how-to-install-jenkins-and-nginx-reverse-proxy-with-ssl-certificate-539d43319040
+4. https://medium.com/@indusasikala93/deploying-a-react-application-using-a-jenkins-ci-cd-pipeline-4c2a7dcf1efb
