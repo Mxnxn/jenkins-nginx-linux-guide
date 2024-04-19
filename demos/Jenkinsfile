@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                dir("${env.WORKSPACE}/<Pipeline Name>"){
+                    sh "/home/user/.bun/bin/bun install "
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Test Dev1"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                dir("${env.WORKSPACE}"){
+                    sh "/home/<user>/.bun/bin/bun run build"
+                }
+            }
+        }
+    }
+}
