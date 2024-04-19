@@ -121,48 +121,48 @@ curl -fsSL https://bun.sh/install | bash
 ```
 # Setting up Jenkins
 On our subdomain **Jenkin.example.com**, we can see something like this if you already set a user,
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/assets/assets/jenkins_login.png" alt="drawing" width="700"/>
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/assets/assets/jenkins_login.png" alt="drawing" width="900"/>
 Otherwise setup a user 
 ## 1 Find Administrator Password 
 ```
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 copy that and paste it to prompt \
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_admin_password.png" alt="drawing" width="700"/>
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_admin_password.png" alt="drawing" width="900"/>
 
 ## 2 Installation of Plugins
 I recommend going with the First option if one is new/beginner\
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_screen_two.png" alt="drawing" width="700"/> \
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_screen_two.png" alt="drawing" width="900"/> \
 It will look like this 
 
 ## 3 Creating a user 
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_create_user.png" alt="drawing" width="700"/> \
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_create_user.png" alt="drawing" width="900"/> \
 
 It will ask for the URL, put `https://jenkins.example.com/`, and Successfully, initialize. \
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_home_page.png" alt="drawing" width="700"/> 
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_home_page.png" alt="drawing" width="900"/> 
 
 ## Setting up our job 
 1. Create a new item, provide a name, and click on pipeline (Second Option). Then next. \
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/img (1).png" alt="drawing" width="700"/> 
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/img (1).png" alt="drawing" width="900"/> 
 
 2. Click on the `GithubSCM` option as we will call this job after committing and pushing to the master
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_githubscm.png" alt="drawing" width="700"/>
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_githubscm.png" alt="drawing" width="900"/>
 
 3. Fill in the information of the GitHub repository URL (SSH clone URL).
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_newitem_giturl.png" alt="drawing" width="700"/>
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_newitem_giturl.png" alt="drawing" width="900"/>
 
 > Note: You can get **an error** for something related to the repository or SSH key. The below steps are less recommended as they represent security.
   1. Need to follow this path `Dashboard > Manage Jenkins > Security > CSRF Protection` tick `enable proxy compatibility`
   2. In the same section `Git Host Key Verification Configuration` to `No verification`
-  <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_NKV.png" alt="drawing" width="700"/>
+  <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_NKV.png" alt="drawing" width="900"/>
   
 4. Press the add button for `SSH key`, select the `SSH with Private key` option under the dialog box, and follow the image below, \
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_ssh_key.png" alt="drawing" width="700"/>
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_ssh_key.png" alt="drawing" width="900"/>
 
 5.  Script Path will be `Jenkinsfile` (Which we will create along with the `Deploy.yml` file for **GitHub Actions**). The final look and ignore the error for now as I've shown the demo URL
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_final.png" alt="drawing" width="700"/>
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/jenkins_final.png" alt="drawing" width="900"/>
 
 One can save, and apply after this. Therefore, a job has been successfully created with this. It will look like this
-<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/img (8).png" alt="drawing" width="700"/>
+<img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/assets/img (8).png" alt="drawing" width="900"/>
 
  
