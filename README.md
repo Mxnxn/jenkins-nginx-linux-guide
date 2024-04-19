@@ -1,11 +1,11 @@
-in# Jenkins Guide for pre-existing react projects
+# Jenkins Guide for pre-existing react projects
 I've faced a lot of errors and utilized a significant amount of time to build and deploy my portfolio website manually. Though of learning Jenkins for DevOps learning purposes. I've created a guide but need hands-on experience a bit for understand small details. I just need to push an update, my project will automatically deploy. Thanks to CI/CD and GithubActions.
 
 <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/logos/jenkins.png" alt="drawing" width="300"/> <img src="https://github.com/Mxnxn/jenkins-reactjs-guide/blob/master/logos/reactjs.png" alt="drawing" width="200"/>
 
 > Dont Forget to drop star if you run this guide successfull :) and you can [download](https://github.com/Mxnxn/jenkins-reactjs-guide/demos) the demo files.
 
-# Prequisites
+# Prerequisite
 1. Nginx installation
 2. Java jre/jdk installation
 3. Reactjs/Nodejs repository (which is perfectly built on the server)
@@ -13,7 +13,7 @@ I've faced a lot of errors and utilized a significant amount of time to build an
 5. Certbot
 6. Already added An entry on whether you are going to run Jenkins on a subdomain.
 
-## Techs I've used
+## Tech, I have used
 1. Nodejs/NVM/npm
 2. Reactjs
 3. bun package manager (faster than node/yarn)
@@ -205,7 +205,7 @@ One can save, and apply after this. Therefore, a job has been successfully creat
    ```
    this will eliminate permission errors. As installation has created a Jenkins user.
 
-## to download DEMO of Deploy.yml and Jenkinsfile
+## DEMO of Deploy.yml and Jenkinsfile
 [Download](https://github.com/Mxnxn/jenkins-reactjs-guide/demos)
 
 ## If you like this guide hit star, Please.
